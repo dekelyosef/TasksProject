@@ -1,0 +1,38 @@
+.pt-button {
+  display: grid;
+  padding: 10px 40px;
+  border-radius: 4px;
+  background-color: rgba(var(--base-primary-color));
+  color: rgba(var(--base-foreground-color));
+  cursor: pointer;
+}
+
+.pt-button button {
+  outline: none;
+  border: 0;
+  box-shadow: 0;
+  background-color: rgba(var(--base-primary-color));
+  color: rgba(var(--base-background-color));
+}
+
+.disabled {
+  background-color: rgba(var(--base-color-gray-1));
+  cursor: initial;
+}
+
+.disabled button {
+  background-color: rgba(var(--base-color-gray-1));
+  color: rgba(var(--base-color-black));
+  cursor: initial;
+}
+
+.secondary {
+  background-color: rgba(var(--base-background-color));
+  border: 2px solid rgba(var(--base-primary-color));
+  padding: 7px 30px;
+}
+
+.secondary button {
+  background-color: rgba(var(--base-background-color));
+  color: rgba(var(--base-primary-color));
+}

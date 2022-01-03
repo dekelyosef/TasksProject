@@ -1,0 +1,4 @@
+
+<div class="pt-button" [ngClass]="{'disabled': disabled}" [ngClass]="{'secondary': secondary}">
+    <button (click)="disabled ? onClick() : null">{{ title }}</button>
+</div>

@@ -1,0 +1,29 @@
+.pt-badge {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding: 5px 22px;
+  border-radius: 4px;
+  background-color: rgba(var(--base-primary-color));
+  outline: none;
+  border: 0;
+  box-shadow: 0;
+}
+
+.pt-badge .title {
+  color: rgba(var(--base-background-color));
+  font-weight: 300;
+}
+
+.open {
+  background-color: rgba(var(--base-primary-color));
+}
+
+.closed {
+  background-color: rgba(var(--base-color-red));
+}
+
+.inProcess {
+  background-color: rgba(var(--base-color-green));
+}

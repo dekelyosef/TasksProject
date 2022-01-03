@@ -1,0 +1,134 @@
+@font-face {
+  font-family: Rubik;
+  src: url(../assets/fonts/Rubik-Light.ttf) format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url(../assets/fonts/Rubik-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url(../assets/fonts/Rubik-Medium.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+* {
+  font-family: Rubik;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+}
+
+input {
+  font-family: Rubik;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.25px;
+}
+
+button {
+  cursor: pointer;
+  font-family: Rubik;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+h1 {
+  font-family: Rubik;
+  font-size: 48px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+h2 {
+  font-family: Rubik;
+  font-size: 34px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.94;
+  letter-spacing: normal;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+h3 {
+  font-family: Rubik;
+  font-size: 28px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+h4 {
+  font-family: Rubik;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+h5 {
+  font-family: Rubik;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+h6 {
+  font-family: Rubik;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: rgba(var(--base-accent-color));
+  margin: 0;
+}
+
+p {
+  font-family: Rubik;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: #b0bac9;
+}

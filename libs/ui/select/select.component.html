@@ -1,0 +1,12 @@
+<div class="select" (focusout)="onFocusOut()">
+    <div class="input-container">
+        <div class="input" (click)="onClick()">
+            <input type="text" placeholder={{placeholder}}/>
+        </div>
+    </div>
+    <div class="list" *ngIf="showList">
+        <div class="item" *ngFor="let chip of chips" (mousedown)="onAddInternal(chip)">
+            <h6>{{ chip.title }}</h6>
+        </div>
+    </div>
+</div>

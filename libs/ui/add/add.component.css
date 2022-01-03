@@ -1,0 +1,15 @@
+.add-icon {
+  cursor: pointer;
+  background-image: url(../assets/svg/add-box.svg);
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+}
+
+.add {
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,23 @@
+.body-container {
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  font-weight: lighter;
+}
+
+.input-container {
+  outline: 0;
+  box-shadow: none;
+  color: rgba(var(--base-accent-color));
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid #e0e7ff;
+  background-color: rgba(224, 231, 255, 0.2);
+  margin: 5px 0px 15px 0px;
+}

@@ -1,0 +1,42 @@
+<div class="lectures">
+    <div class="details">
+        <div class="header-row text-row">
+            <div>My Tasks</div>
+            <!-- <pt-paginator (messageEvent)="pageChanged($event)"></pt-paginator> -->
+        </div>
+        <div class="lectures-list">
+            <pt-task></pt-task>
+            <pt-task></pt-task>
+            <!-- <div *ngIf="tasksList.length != 0">
+                <pt-task *ngFor="let tas of tasksList" [task]="tas"></pt-task>
+            </div> -->
+        </div>
+    </div>
+    <pt-add style="height: 5%;" (click)="showAddTask()"></pt-add>
+    <pt-filter title="Tasks">
+        <!-- <pt-filter-status></pt-filter-status> -->
+        <!-- <pt-filter-date></pt-filter-date> -->
+        <!-- <div *ngIf="errors">
+            <pt-error [error]=errors></pt-error>
+          </div>     -->
+        <div class="filter-button">
+          <pt-button (click)="cleanForm()" title="Clean Form" [secondary]="true"></pt-button>
+          <pt-button (click)="filterForm()" title="Filter"></pt-button>
+        </div>
+    </pt-filter>
+</div>
+<!-- <div *ngIf="addLecture" class="overlay">
+    <div class="popup">
+        <pt-add-lecture (hideMessageEvent)="hideAddLecture()" (addMessageEvent)="getLectures()"></pt-add-lecture>
+    </div>
+</div>
+<div *ngIf="showStudents" class="overlay">
+    <div class="popup">
+        <pt-list (hideMessageEvent)="hideStudents()" [students]="selectedStudents"></pt-list>
+    </div>
+</div>
+<div *ngIf="registerErrors" class="overlay">
+    <div class="popup">
+      <pt-error (messageEvent)="hideRegisterError()" [error]=registerErrors [popUp]='true'></pt-error>
+    </div>
+</div> -->

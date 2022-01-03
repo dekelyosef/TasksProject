@@ -1,0 +1,38 @@
+.body-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.space-row {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.text-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body-row .left {
+  color: rgba(var(--base-color-gray-3));
+}
+
+.body-row > div {
+  font-weight: lighter;
+}
+
+.body-row .right {
+  cursor: pointer;
+}
+
+.clear {
+  background-image: url(../assets/svg/clear.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  cursor: pointer;
+}
