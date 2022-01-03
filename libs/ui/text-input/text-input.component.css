@@ -1,0 +1,57 @@
+.text-input input {
+  width: 90%;
+  margin: 5px 0px 15px 0px;
+  outline: 0;
+  box-shadow: none;
+  color: rgba(var(--base-accent-color));
+  padding: 11px 19px;
+  border-radius: 5px;
+  border: 1px solid #e0e7ff;
+  background-color: rgba(224, 231, 255, 0.2);
+}
+
+.message {
+  display: flex;
+  width: 90%;
+  margin: 5px 0px 15px 0px;
+  outline: 0;
+  box-shadow: none;
+  color: rgba(var(--base-accent-color));
+  padding: 11px 19px;
+  border-radius: 5px;
+  border: 1px solid #e0e7ff;
+  background-color: rgba(224, 231, 255, 0.2);
+  overflow-wrap: normal;
+  resize: none;
+}
+
+input:focus {
+  transition: border 0.2s ease-in-out;
+  border: 1px solid rgba(var(--base-primary-color), 0.5) !important;
+}
+
+.body-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.space-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body-row .left {
+  color: rgba(var(--base-color-gray-3));
+}
+
+.body-row > div {
+  font-weight: lighter;
+}
+
+.body-row .right {
+  cursor: pointer;
+}

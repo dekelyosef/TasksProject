@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'pt-filter-date',
-  templateUrl: './filter-date.component.html',
-  styleUrls: ['./filter-date.component.css'],
+  selector: 'pt-date',
+  templateUrl: './date.component.html',
+  styleUrls: ['./date.component.css'],
 })
-export class FilterDateComponent implements OnInit {
+export class DateComponent implements OnInit {
   public date = '';
 
   constructor() {}

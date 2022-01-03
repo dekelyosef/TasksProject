@@ -1,0 +1,6 @@
+<div *ngIf="message">
+    <textarea class="message" [(ngModel)]="content" rows="4" cols="50" maxlength="300"></textarea>
+</div>
+<div *ngIf="!message" class="text-input">
+    <input type="text" [(ngModel)]="value" [placeholder]="placeholder" maxlength="22"/>
+</div>

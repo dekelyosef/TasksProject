@@ -14,8 +14,8 @@
     </div>
     <pt-add style="height: 5%;" (click)="showAddTask()"></pt-add>
     <pt-filter title="Tasks">
-        <!-- <pt-filter-status></pt-filter-status> -->
-        <!-- <pt-filter-date></pt-filter-date> -->
+        <pt-filter-status></pt-filter-status>
+        <pt-filter-date></pt-filter-date>
         <!-- <div *ngIf="errors">
             <pt-error [error]=errors></pt-error>
           </div>     -->
@@ -25,12 +25,13 @@
         </div>
     </pt-filter>
 </div>
-<!-- <div *ngIf="addLecture" class="overlay">
+<div *ngIf="addTask" class="overlay">
     <div class="popup">
-        <pt-add-lecture (hideMessageEvent)="hideAddLecture()" (addMessageEvent)="getLectures()"></pt-add-lecture>
+        <app-add-task (hideMessageEvent)="hideAddTask()" (addMessageEvent)="getTasks()"></app-add-task>
     </div>
 </div>
-<div *ngIf="showStudents" class="overlay">
+
+<!-- <div *ngIf="showStudents" class="overlay">
     <div class="popup">
         <pt-list (hideMessageEvent)="hideStudents()" [students]="selectedStudents"></pt-list>
     </div>

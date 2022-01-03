@@ -2,6 +2,6 @@ export interface ITask {
   _id: string;
   title: string;
   details: string;
-  Date: Date;
+  date: Date;
   status: string;
 }

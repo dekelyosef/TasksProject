@@ -1,0 +1,8 @@
+<div class="drop-down" tabindex="3" (blur)="onFocusOut()">
+    <div class="more-vert" (click)="onClick()"></div>
+    <div class="list" *ngIf="showList" >
+        <div [ngClass]="{'active': chip.active}" class="item" *ngFor="let chip of chips" (mousedown)="onChoose(chip)">
+            <h6 class="title">{{ chip.title }}</h6>
+        </div>
+    </div>
+</div>

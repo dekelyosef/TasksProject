@@ -1,4 +1,6 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { FilterDateComponent } from 'libs/ui/filter-date/filter-date.component';
+import { FilterStatusComponent } from 'libs/ui/filter-status/filter-status.component';
 import { ITask } from '../entities';
 // import { HttpClient } from '@angular/common/http';
 // import moment from 'moment';
@@ -24,15 +26,14 @@ export class TasksComponent implements AfterViewInit {
   //   from: moment().format('YYYY-MM-DD HH:mm:ss'),
   //   to: moment().add(1, 'month').format('YYYY-MM-DD HH:mm:ss'),
   // };
-  public addLecture = false;
+  public addTask = false;
 
   // constructor(private http: HttpClient) {}
   constructor() {}
 
-  // @ViewChild(FilterCoursesComponent) courses: any;
-  // @ViewChild(FilterDaysComponent) days: any;
+  @ViewChild(FilterDateComponent) date: any;
+  @ViewChild(FilterStatusComponent) status: any;
   // @ViewChild(FilterHoursComponent) hours: any;
-  // @ViewChild(PaginatorComponent) pageNum: any;
 
   ngAfterViewInit() {
     // this.updateFilter();
@@ -47,27 +48,28 @@ export class TasksComponent implements AfterViewInit {
   //   this.filterHours = this.hours.getSelectedHours();
   // }
 
-  // getLectures() {
-  //   this.http
-  //     .get<any>('/lectures', {
-  //       params: this.getParams(),
-  //     })
-  //     .subscribe(
-  //       (res) => {
-  //         this.lecturesList = res.data.map((lecture: ILecture) => {
-  //           return {
-  //             lecture: lecture,
-  //             btns: getBtns(this, lecture),
-  //             status: getStatus(lecture),
-  //           };
-  //         });
-  //         this.handlePages();
-  //       },
-  //       (err) => {
-  //         this.errors = err;
-  //       }
-  //     );
-  // }
+  getTasks() {
+    //   this.http
+    //     .get<any>('/lectures', {
+    //       params: this.getParams(),
+    //     })
+    //     .subscribe(
+    //       (res) => {
+    //         this.lecturesList = res.data.map((lecture: ILecture) => {
+    //           return {
+    //             lecture: lecture,
+    //             btns: getBtns(this, lecture),
+    //             status: getStatus(lecture),
+    //           };
+    //         });
+    //         this.handlePages();
+    //       },
+    //       (err) => {
+    //         this.errors = err;
+    //       }
+    //     );
+    this.hideAddTask();
+  }
 
   // getParams() {
   //   return {
@@ -114,8 +116,8 @@ export class TasksComponent implements AfterViewInit {
   cleanForm() {
     // this.errors = '';
     // this.hideDayTime();
-    // this.courses.clearSelectedCourses();
-    // this.days.clearSelectedDays();
+    this.status.clearSelectedStatus();
+    this.date.clearSelectedDate();
     // this.hours.clearSelectedHours();
   }
 
@@ -137,11 +139,11 @@ export class TasksComponent implements AfterViewInit {
   // }
 
   showAddTask() {
-    this.addLecture = true;
+    this.addTask = true;
   }
 
   hideAddTask() {
-    this.addLecture = false;
+    this.addTask = false;
     //   this.getLectures();
   }
 

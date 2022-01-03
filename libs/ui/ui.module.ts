@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
 import { TaskComponent } from './task/task.component';
@@ -13,6 +17,9 @@ import { FilterDateComponent } from './filter-date/filter-date.component';
 import { FilterStatusComponent } from './filter-status/filter-status.component';
 import { SelectComponent } from './select/select.component';
 import { ButtonComponent } from './button/button.component';
+import { DropDownComponent } from './drop-down/drop-down.component';
+import { TextInputComponent } from './text-input/text-input.component';
+import { DateComponent } from './date/date.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,9 @@ import { ButtonComponent } from './button/button.component';
     FilterStatusComponent,
     SelectComponent,
     ButtonComponent,
+    DropDownComponent,
+    TextInputComponent,
+    DateComponent,
   ],
   exports: [
     TaskComponent,
@@ -38,7 +48,19 @@ import { ButtonComponent } from './button/button.component';
     FilterStatusComponent,
     SelectComponent,
     ButtonComponent,
+    DropDownComponent,
+    TextInputComponent,
+    DateComponent,
   ],
-  imports: [CommonModule, FormsModule, MatDatepickerModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+  ],
 })
 export class UiModule {}

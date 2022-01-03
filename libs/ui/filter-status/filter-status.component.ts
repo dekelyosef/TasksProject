@@ -27,7 +27,7 @@ export class FilterStatusComponent implements OnInit {
   }
 
   getStatusList() {
-    return [
+    this.statuses = [
       { title: 'Completed', data: '1' },
       { title: 'Remaining', data: '2' },
     ];
