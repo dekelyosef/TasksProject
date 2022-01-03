@@ -1,61 +1,51 @@
 .lecture {
-    padding: 0px 14px;
-    margin: 7px 10px;
-    border-radius: 5px;
-    border: 2px solid rgba(var(--base-color-gray-2, 1));
-    background-color: var(--base-color-white);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .body-container {
-    height: 100%;
-    width: 100%;
-    margin-bottom: 7px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .text-row {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-  }
-  
-  .body-row {
-    width: 50%;
-    color: rgba(var(--base-color-black-3));
-  }
-  
-  .header-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .header-row > div {
-    display: flex;
-    font-size: 18px;
-    width: 100%;
-  }
-  
-  .lecture-status {
-    width: 100%;
-    display: flex;
-    margin: 0px 0px 7px 7px;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .lecture-hours {
-    width: 100%;
-    display: flex;
-    margin: 0px 0px 7px 7px;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
+  padding: 0px 14px;
+  margin: 7px 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(var(--base-color-gray-2, 1));
+  background-color: var(--base-color-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.text-row {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.body-row {
+  width: 50%;
+  color: rgba(var(--base-color-black-3));
+  margin-bottom: 7px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.header-row > div {
+  display: flex;
+  font-size: 18px;
+  width: 100%;
+}
+
+.lecture-status {
+  width: 100%;
+  display: flex;
+  margin: 0px 0px 7px 7px;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.lecture-hours {
+  width: 100%;
+  display: flex;
+  margin: 0px 0px 7px 7px;
+  flex-direction: column;
+  align-items: flex-end;
+}

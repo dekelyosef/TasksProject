@@ -1,6 +1,10 @@
-.lectures {
+.tasks {
   display: grid;
+  background: rgba(var(--base-color-white));
   grid-template-columns: 70% 2% 27%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(var(--base-color-gray-2, 1));
 }
 
 .filter-button {
@@ -22,7 +26,7 @@
   flex-direction: column;
 }
 
-.lectures-list {
+.tasks-list {
   margin: 10px 7px 0px 7px;
   display: flex;
   flex-direction: column;

@@ -39,6 +39,7 @@ export class DropDownComponent implements OnInit {
   onClick() {
     this.toggleShow();
   }
+
   toggleShow() {
     if (this.showList) {
       this.hide();
@@ -46,6 +47,7 @@ export class DropDownComponent implements OnInit {
       this.show();
     }
   }
+
   show() {
     this.showList = true;
   }

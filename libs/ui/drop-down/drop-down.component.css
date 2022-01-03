@@ -25,6 +25,7 @@
   color: rgba(var(--base-background-color));
   background-color: rgba(var(--base-background-color));
 }
+
 .drop-down .list .active {
   cursor: pointer;
 }

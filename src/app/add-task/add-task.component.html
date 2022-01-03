@@ -1,10 +1,7 @@
-<div class="add-lecture-body">
+<div class="add-task-body">
     <div class="exit" (click)="exit()"></div>
-    <div class="header-container">
-        <div class="left">Add Task</div>
-    </div>
-    <div class="body-row">
-        <div>Title:</div>
+    <div class="header-container">Add New Task</div>
+    <div class="body-row">Title:
         <pt-text-input class="input" #input [message]="false"></pt-text-input>
         <!-- <pt-select (messageEvent)="getSelectedType()" class="multi-select" [chips]="types"></pt-select> -->
     </div>
@@ -12,16 +9,14 @@
         <div>Other:</div>
         <pt-text-input class="input" #input></pt-text-input>
     </div> -->
-    <div class="body-row">
-        <div>Description:</div>
+    <div class="body-row">Description:
         <pt-text-input class="input" #content [message]="true"></pt-text-input>
     </div>
-    <div class="body-row">
-        <div>Date:</div>
+    <div class="body-row">Due Date:
         <pt-date></pt-date>
     </div>
-    <div class="add-inquiry-button">
-        <pt-button class="button" (click)="addInquiry()" title="Send"></pt-button>
+    <div class="add-task-button">
+        <pt-button class="button" (click)="addInquiry()" title="Add"></pt-button>
     </div>
     <!-- <div *ngIf="errors">
         <pt-error [error]=errors></pt-error>

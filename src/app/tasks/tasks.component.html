@@ -1,12 +1,16 @@
-<div class="lectures">
+<div class="tasks">
     <div class="details">
         <div class="header-row text-row">
             <div>My Tasks</div>
             <!-- <pt-paginator (messageEvent)="pageChanged($event)"></pt-paginator> -->
         </div>
-        <div class="lectures-list">
+        <div class="tasks-list">
             <pt-task></pt-task>
             <pt-task></pt-task>
+            <pt-task></pt-task>
+            <pt-task></pt-task>
+            <pt-task></pt-task>
+
             <!-- <div *ngIf="tasksList.length != 0">
                 <pt-task *ngFor="let tas of tasksList" [task]="tas"></pt-task>
             </div> -->
@@ -31,12 +35,7 @@
     </div>
 </div>
 
-<!-- <div *ngIf="showStudents" class="overlay">
-    <div class="popup">
-        <pt-list (hideMessageEvent)="hideStudents()" [students]="selectedStudents"></pt-list>
-    </div>
-</div>
-<div *ngIf="registerErrors" class="overlay">
+<!-- <div *ngIf="registerErrors" class="overlay">
     <div class="popup">
       <pt-error (messageEvent)="hideRegisterError()" [error]=registerErrors [popUp]='true'></pt-error>
     </div>

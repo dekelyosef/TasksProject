@@ -1,4 +1,4 @@
-<pt-form-group (messageEvent)="clearSelectedDate()" left="Date:" right="Clear" svg="clear" path="clear">
+<pt-form-group (messageEvent)="clearSelectedDate()" left="Due Date:" right="Clear" svg="clear" path="clear">
     <div class="input-container">
         <input class="input" [(ngModel)]="date" [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

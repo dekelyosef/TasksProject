@@ -20,11 +20,13 @@ export function getBtns(self: T, task: ITask) {
         // self.ShowStudents(lecture.students);
       },
       //   active: numofStudent(lecture) > 0,
+      active: 'active',
     },
     {
       title: 'delete task',
       //   onClick: () => self.deleteLecture(lecture._id),
       //   active: moment(lecture.start).isAfter(),
+      active: 'active',
     },
   ];
 }

@@ -1,5 +1,5 @@
 .text-input input {
-  width: 90%;
+  width: 95%;
   margin: 5px 0px 15px 0px;
   outline: 0;
   box-shadow: none;
@@ -12,7 +12,7 @@
 
 .message {
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: 5px 0px 15px 0px;
   outline: 0;
   box-shadow: none;
@@ -23,6 +23,7 @@
   background-color: rgba(224, 231, 255, 0.2);
   overflow-wrap: normal;
   resize: none;
+  font-weight: lighter;
 }
 
 input:focus {

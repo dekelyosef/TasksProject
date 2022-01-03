@@ -3,19 +3,17 @@
         <div class="header-row text-row">
             <!-- <pt-drop-down style="margin-right: 10px;" [chips]="task.btns"></pt-drop-down> -->
             <pt-drop-down style="margin-right: 10px;"></pt-drop-down>
+            <div>Title</div>
             <!-- <div>{{ lecture.lecture.course.slug }}</div> -->
             <div class="lecture-status">
+                <pt-status status="Completed"></pt-status>
                 <!-- <pt-status [status]="task.status"></pt-status> -->
                 <!-- <pt-status [status]="task.status"></pt-status> -->
             </div>
         </div>
     </div>
-    <div class="body-container">
-        <div class="body-row text-row">
-            <!-- <div>Teacher: {{ task.title }}</div> -->
-            <div>Title</div>
-            <div> Date: 22.1.22 10:00</div>
-            <!-- <div>Date: {{ getDate(task.hour) }}</div> -->
-        </div>
+    <div class="body-row text-row">
+        <div> Due Date: 22.1.22 10:00</div>
+        <!-- <div>Date: {{ getDate(task.hour) }}</div> -->
     </div>
 </div>
