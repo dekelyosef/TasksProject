@@ -1,7 +1,5 @@
-<div class="pt-badge" [ngClass]='status.type'>
-    <!-- <h6 class="title">{{status.title}}</h6> -->
-    <h6 class="title">Complete</h6>
-
+<div class="pt-badge" [ngClass]="type">
+    <h6 class="title">{{ status }}</h6>
     <div>
         <ng-content></ng-content>
     </div>

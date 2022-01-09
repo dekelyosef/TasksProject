@@ -43,7 +43,7 @@
 .text-row {
   display: flex;
   justify-content: space-between;
-  margin: 0px 7px;
+  margin: 0px 18px 0px 10px;
   flex-direction: row;
   align-items: center;
 }

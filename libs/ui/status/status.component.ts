@@ -9,7 +9,19 @@ export class StatusComponent implements OnInit {
   @Input()
   status: any;
 
+  public type = 'toDo';
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.status === 'Completed') {
+      this.type = 'completed';
+    } else {
+      this.type = 'toDo';
+    }
+  }
+
+  getStatus() {
+    return this.status;
+  }
 }

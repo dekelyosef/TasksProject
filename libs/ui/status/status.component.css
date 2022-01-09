@@ -16,14 +16,10 @@
   font-weight: 300;
 }
 
-.open {
+.toDo {
   background-color: rgba(var(--base-primary-color));
 }
 
-.closed {
-  background-color: rgba(var(--base-color-red));
-}
-
-.inProcess {
+.completed {
   background-color: rgba(var(--base-color-green));
 }

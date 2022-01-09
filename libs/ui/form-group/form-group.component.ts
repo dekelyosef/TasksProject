@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-// import { Router } from '@angular/router';
 
 @Component({
   selector: 'pt-form-group',
@@ -22,19 +21,11 @@ export class FormGroupComponent implements OnInit {
   @Output()
   messageEvent = new EventEmitter<string>();
 
-  // constructor(private router: Router) {}
   constructor() {}
 
   ngOnInit(): void {}
 
   onClick() {
     this.messageEvent.emit();
-
-    // if (this.path === 'clear') {
-    //   this.messageEvent.emit();
-    // } else {
-    //   // navigate to the given page name
-    //   this.router.navigate(['/' + this.path]);
-    // }
   }
 }

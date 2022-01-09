@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -7,7 +7,8 @@ import * as moment from 'moment';
   styleUrls: ['./filter-date.component.css'],
 })
 export class FilterDateComponent implements OnInit {
-  public date = '';
+  @Input()
+  date = '';
 
   constructor() {}
 
@@ -17,7 +18,7 @@ export class FilterDateComponent implements OnInit {
     this.date = '';
   }
 
-  getDate() {
+  getSelectedDate() {
     return moment(this.date).format('YYYY-MM-DD');
   }
 }

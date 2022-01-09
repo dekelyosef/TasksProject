@@ -1,4 +1,4 @@
-.add-task-body {
+.edit-task-body {
   margin: 7px;
   padding: 10px 24px;
   border-radius: 5px;
@@ -33,10 +33,10 @@
   margin: 0px 7px;
 }
 
-.add-task-button {
+.edit-task-button {
   width: 100%;
   display: flex;
-  margin-bottom: 3px;
+  margin-bottom: 10px 0px 3px 0px;
   flex-direction: column;
   align-items: flex-end;
 }

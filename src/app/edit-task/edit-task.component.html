@@ -1,0 +1,24 @@
+<div class="edit-task-body">
+    <div class="exit" (click)="exit()"></div>
+    <div class="header-container">Edit Task</div>
+    <div class="body-row">Title:
+        <pt-text-input [value]="task.title" class="input" #title [message]="false"></pt-text-input>
+    </div>
+    <div class="body-row">Description:
+        <pt-text-input [content]="task.description" class="input" #description [message]="true"></pt-text-input>
+    </div>
+    <div class="due-date">
+        <div class="body-row">Due Date:
+            <pt-date [date]="getDate(task.date)"></pt-date>    
+        </div>
+        <div class="body-row">Hour:
+            <pt-hour [hour]="getHour(task.date)"></pt-hour>
+        </div>
+    </div>
+    <div class="body-row">Status:
+        <pt-select [placeholder]="task.status" [selectedChip]="task.status" (messageEvent)="getSelectedStatus()" class="multi-select" [chips]="statuses"></pt-select>
+    </div>
+    <div class="edit-task-button">
+        <pt-button class="button" (click)="editTask()" title="Edit"></pt-button>
+    </div>
+</div>

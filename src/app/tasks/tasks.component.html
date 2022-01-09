@@ -2,41 +2,36 @@
     <div class="details">
         <div class="header-row text-row">
             <div>My Tasks</div>
-            <!-- <pt-paginator (messageEvent)="pageChanged($event)"></pt-paginator> -->
+            <pt-tab [titles]="orderByTitles" (messageEvent)="changeOrder($event)"></pt-tab>
         </div>
         <div class="tasks-list">
-            <pt-task></pt-task>
-            <pt-task></pt-task>
-            <pt-task></pt-task>
-            <pt-task></pt-task>
-            <pt-task></pt-task>
-
-            <!-- <div *ngIf="tasksList.length != 0">
-                <pt-task *ngFor="let tas of tasksList" [task]="tas"></pt-task>
-            </div> -->
+            <div *ngIf="tasksList.length != 0">
+                <pt-task *ngFor="let tas of tasksList" [task]="tas" [btns]="getTaskBtns(tas)"></pt-task>
+            </div>
         </div>
     </div>
     <pt-add style="height: 5%;" (click)="showAddTask()"></pt-add>
     <pt-filter title="Tasks">
         <pt-filter-status></pt-filter-status>
         <pt-filter-date></pt-filter-date>
-        <!-- <div *ngIf="errors">
-            <pt-error [error]=errors></pt-error>
-          </div>     -->
         <div class="filter-button">
           <pt-button (click)="cleanForm()" title="Clean Form" [secondary]="true"></pt-button>
           <pt-button (click)="filterForm()" title="Filter"></pt-button>
         </div>
     </pt-filter>
 </div>
-<div *ngIf="addTask" class="overlay">
+<div *ngIf="add" class="overlay">
     <div class="popup">
-        <app-add-task (hideMessageEvent)="hideAddTask()" (addMessageEvent)="getTasks()"></app-add-task>
+        <app-add-task (hideMessageEvent)="hideAddTask()" (addMessageEvent)="hideAddTask()"></app-add-task>
     </div>
 </div>
-
-<!-- <div *ngIf="registerErrors" class="overlay">
+<div *ngIf="edit" class="overlay">
     <div class="popup">
-      <pt-error (messageEvent)="hideRegisterError()" [error]=registerErrors [popUp]='true'></pt-error>
+        <app-edit-task [task]="chosenTask" (hideMessageEvent)="hideEditTask()" (addMessageEvent)="hideEditTask()"></app-edit-task>
     </div>
-</div> -->
+</div>
+<div *ngIf="details" class="overlay">
+    <div class="popup">
+        <app-get-task (hideMessageEvent)="hideGetDetails()" [task]="chosenTask"></app-get-task>
+    </div>
+</div>

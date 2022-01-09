@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SelectComponent } from '../select/select.component';
 
 type T = any;
@@ -19,7 +19,6 @@ export class FilterStatusComponent implements OnInit {
 
   @ViewChild(SelectComponent) child: any;
 
-  // constructor(private http: HttpClient) {}
   constructor() {}
 
   ngOnInit(): void {
@@ -29,21 +28,8 @@ export class FilterStatusComponent implements OnInit {
   getStatusList() {
     this.statuses = [
       { title: 'Completed', data: '1' },
-      { title: 'Remaining', data: '2' },
+      { title: 'To do', data: '2' },
     ];
-    // this.http.get<any>('general/inquiries/statuses').subscribe({
-    //   next: (res) => {
-    //     this.statuses = Array.from(res.data).map((t: any) => {
-    //       return {
-    //         title: t.slug,
-    //         data: t._id,
-    //       };
-    //     });
-    //   },
-    //   error: (error) => {
-    //     this.errors = error;
-    //   },
-    // });
   }
 
   clearSelectedStatus() {
@@ -51,6 +37,6 @@ export class FilterStatusComponent implements OnInit {
   }
 
   getSelectedStatus() {
-    return this.child.getSelectedChip()?.title;
+    return this.child.getSelectedChip();
   }
 }

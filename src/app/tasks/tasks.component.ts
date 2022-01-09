@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FilterDateComponent } from 'libs/ui/filter-date/filter-date.component';
 import { FilterStatusComponent } from 'libs/ui/filter-status/filter-status.component';
-import { ITask } from '../entities';
-// import { HttpClient } from '@angular/common/http';
-// import moment from 'moment';
+import { Task } from '../DTO/task';
+import { RequestServiceService } from '../services/requests-service.service';
+import { Subscription } from 'rxjs';
+import { SharedDataService } from '../services/shared-data.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-tasks',
@@ -11,152 +13,169 @@ import { ITask } from '../entities';
   styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent implements AfterViewInit {
-  public tasksList: Array<ITask> = [];
-  public selectedDays = [];
-  public dayTime = false;
-  public filterParams = [];
-  public errors: any;
-  public registerErrors: any;
-  public pageSize = '5';
-  public page = '0';
-  public filterCourses = [];
-  public filterDays = [];
-  public filterHours = { from: '00:00', to: '24:00' };
-  // public filterDate = {
-  //   from: moment().format('YYYY-MM-DD HH:mm:ss'),
-  //   to: moment().add(1, 'month').format('YYYY-MM-DD HH:mm:ss'),
-  // };
-  public addTask = false;
+  subscriptions: Array<Subscription> = new Array<Subscription>();
+  public tasksList: Array<Task> = [];
+  public orderByTitles = ['Date', 'Status', 'Description'];
 
-  // constructor(private http: HttpClient) {}
-  constructor() {}
+  public chosenTask: Task | undefined;
+  public chosenStatus: any = null;
+  public chosenStartDate: any = null;
+  public chosenEndDate: any = null;
+  public chosenOrder: any = null;
+  public add = false;
+  public edit = false;
+  public details = false;
 
   @ViewChild(FilterDateComponent) date: any;
   @ViewChild(FilterStatusComponent) status: any;
-  // @ViewChild(FilterHoursComponent) hours: any;
+
+  constructor(
+    private requestsService: RequestServiceService,
+    private sharedDataService: SharedDataService
+  ) {}
 
   ngAfterViewInit() {
-    // this.updateFilter();
-    // this.getLectures();
+    this.subscriptions.push(
+      this.sharedDataService.currentChange.subscribe((change) => {
+        if (change) {
+          this.getTasksList();
+        } else {
+          this.subscriptions.push(
+            this.sharedDataService.currentTasksList.subscribe((tasks: any) =>
+              this.updateTasks(tasks)
+            )
+          );
+        }
+      })
+    );
+    this.subscriptions.push(
+      this.requestsService.onAppResponseError.subscribe(
+        (response: { message: any }) => alert(response.message)
+      )
+    );
   }
 
-  // updateFilter() {
-  //   this.filterDate.from = moment().format('YYYY-MM-DD HH:mm:ss');
-  //   this.filterDate.to = moment().add(1, 'month').format('YYYY-MM-DD HH:mm:ss');
-  //   this.filterCourses = this.courses.getSelectedCourses();
-  //   this.filterDays = this.days.getSelectedDays();
-  //   this.filterHours = this.hours.getSelectedHours();
-  // }
-
-  getTasks() {
-    //   this.http
-    //     .get<any>('/lectures', {
-    //       params: this.getParams(),
-    //     })
-    //     .subscribe(
-    //       (res) => {
-    //         this.lecturesList = res.data.map((lecture: ILecture) => {
-    //           return {
-    //             lecture: lecture,
-    //             btns: getBtns(this, lecture),
-    //             status: getStatus(lecture),
-    //           };
-    //         });
-    //         this.handlePages();
-    //       },
-    //       (err) => {
-    //         this.errors = err;
-    //       }
-    //     );
-    this.hideAddTask();
+  getTasksList() {
+    this.requestsService.getTasksList(
+      this.chosenStatus,
+      this.chosenStartDate,
+      this.chosenEndDate,
+      this.chosenOrder
+    );
+    this.subscriptions.push(
+      this.requestsService.onGetTasks.subscribe((data) => {
+        this.updateTasks(data.Table);
+        this.sharedDataService.changeTasksList(this.tasksList);
+      })
+    );
   }
 
-  // getParams() {
-  //   return {
-  //     from: this.filterDate.from,
-  //     to: this.filterDate.to,
-  //     courses:
-  //       this.filterCourses.length === 0
-  //         ? []
-  //         : JSON.stringify(this.filterCourses),
-  //     days: this.filterDays.length === 0 ? [] : JSON.stringify(this.filterDays),
-  //     startHour: this.filterHours.from === '' ? '00:00' : this.filterHours.from,
-  //     endHour: this.filterHours.to === '' ? '24:00' : this.filterHours.to,
-  //     pageSize: this.pageSize,
-  //     page: this.page,
-  //   };
-  // }
+  updateTasks(tasks: Task[]) {
+    this.tasksList = tasks;
+  }
 
-  // handlePages() {
-  //   if (this.lecturesList.length < Number(this.pageSize)) {
-  //     this.pageNum.lastPage();
-  //   }
-  //   if (this.lecturesList.length === 0) {
-  //     this.pageNum.getLastPage();
-  //     this.pageNum.lastPage();
-  //   }
-  // }
-  // deleteLecture(id: string) {
-  //   this.http.delete('teacher/lectures/' + id).subscribe(
-  //     (res: any) => {
-  //       this.pageChanged(this.page);
-  //     },
-  //     (err) => {
-  //       this.registerErrors = err;
-  //     }
-  //   );
-  // }
+  updateFilter() {
+    this.chosenStatus =
+      this.status.getSelectedStatus() === undefined
+        ? null
+        : this.status.getSelectedStatus();
+    this.chosenStartDate =
+      this.date.getSelectedDate() === 'Invalid date'
+        ? null
+        : this.date.getSelectedDate() + ' 00:00:00';
+    this.chosenEndDate =
+      this.date.getSelectedDate() === 'Invalid date'
+        ? null
+        : this.date.getSelectedDate() + ' 23:59:59';
+  }
 
   filterForm() {
-    // this.updateFilter();
-    // this.getLectures();
-    // this.cleanForm();
+    this.updateFilter();
+    this.getTasksList();
   }
 
   cleanForm() {
-    // this.errors = '';
-    // this.hideDayTime();
     this.status.clearSelectedStatus();
     this.date.clearSelectedDate();
-    // this.hours.clearSelectedHours();
   }
 
-  // showDayTime() {
-  //   this.setDayTime();
-  //   if (this.selectedDays !== []) {
-  //     this.dayTime = true;
-  //   } else {
-  //     this.hideDayTime();
-  //   }
-  // }
-
-  // setDayTime() {
-  //   this.selectedDays = this.days.getSelectedDays();
-  // }
-
-  // hideDayTime() {
-  //   this.dayTime = false;
-  // }
-
   showAddTask() {
-    this.addTask = true;
+    this.add = true;
   }
 
   hideAddTask() {
-    this.addTask = false;
-    //   this.getLectures();
+    this.add = false;
   }
 
-  // ShowStudents(students: Array<IUser> | undefined) {
-  //   this.selectedStudents = students;
-  //   this.showStudents = true;
-  // }
+  showEditTask() {
+    this.edit = true;
+  }
 
-  // hideStudents() {
-  //   this.showStudents = false;
-  // }
+  hideEditTask() {
+    this.edit = false;
+  }
 
-  // hideRegisterError() {
-  //   this.registerErrors = '';
-  // }
+  editTask(task: Task) {
+    this.chosenTask = task;
+    this.showEditTask();
+  }
+
+  showGetDetails() {
+    this.details = true;
+  }
+
+  hideGetDetails() {
+    this.details = false;
+  }
+
+  getDetails(task: Task) {
+    this.chosenTask = task;
+    this.showGetDetails();
+  }
+
+  deleteTask(task: Task) {
+    this.requestsService.deleteTask(task.id);
+  }
+
+  editStatus(task: Task) {
+    this.requestsService.editTaskStatus(task.id, 'Completed');
+  }
+
+  getTaskBtns(task: Task) {
+    return [
+      {
+        title: 'Mark As Completed',
+        onClick: () => {
+          this.editStatus(task);
+        },
+        active: task.status === 'To do',
+      },
+      {
+        title: 'Show Details',
+        onClick: () => {
+          this.getDetails(task);
+        },
+        active: true,
+      },
+      {
+        title: 'Delete Task',
+        onClick: () => {
+          this.deleteTask(task);
+        },
+        active: moment(task.date).isAfter(moment().add(6, 'd')),
+      },
+      {
+        title: 'Edit Task',
+        onClick: () => {
+          this.editTask(task);
+        },
+        active: true,
+      },
+    ];
+  }
+
+  changeOrder(title: string) {
+    this.chosenOrder = title;
+    this.getTasksList();
+  }
 }

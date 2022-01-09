@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { DateComponent } from 'libs/ui/date/date.component';
+import { HourComponent } from 'libs/ui/hour/hour.component';
+import { RequestServiceService } from '../services/requests-service.service';
 
 @Component({
   selector: 'app-add-task',
@@ -6,77 +15,34 @@ import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent implements AfterViewInit {
-  constructor() {}
-
-  public selectedType = '';
-  public title = '';
-
-  public isOther = false;
-  public showTypesList = false;
-  public errors: any;
-
   @Output()
   hideMessageEvent = new EventEmitter<string>();
 
   @Output()
   addMessageEvent = new EventEmitter<string>();
 
-  // @ViewChild(SelectComponent) select: any;
-  // @ViewChild('input') input: any;
-  // @ViewChild('content') content: any;
+  @ViewChild(DateComponent) date: any;
+  @ViewChild(HourComponent) hour: any;
+  @ViewChild('title') title: any;
+  @ViewChild('description') description: any;
 
-  // constructor(private http: HttpClient, private router: Router) {}
+  constructor(private requestsService: RequestServiceService) {}
 
-  ngAfterViewInit() {
-    this.getTypesList();
-  }
+  ngAfterViewInit() {}
 
-  addInquiry() {
-    // if (this.isOther) {
-    //   this.title = this.input.getValue();
-    // } else {
-    //   this.title = this.selectedType;
-    // }
-    // this.http
-    //   .post<any>('/inquiries', {
-    //     type: this.selectedType,
-    //     title: this.title,
-    //     description: this.content.getContent(),
-    //   })
-    //   .subscribe(
-    //     () => {
-    //       this.router.navigate(['/inquiries']);
-    //     },
-    //     (error) => {
-    //       this.errors = error;
-    //     }
-    //   );
+  addTask() {
+    this.requestsService.addNewTask(
+      this.getRandom().toString(),
+      this.title.getValue(),
+      this.date.getSelectedDate() + ' ' + this.hour.getSelectedHour(),
+      this.description.getContent(),
+      'To do'
+    );
     this.addMessageEvent.emit();
   }
 
-  getTypesList() {
-    // this.http.get<any>('general/inquiries/types/teacher').subscribe({
-    //   next: (res) => {
-    //     this.types = Array.from(res.data).map((t: any) => {
-    //       return {
-    //         title: t.slug,
-    //         data: t._id,
-    //       };
-    //     });
-    //   },
-    //   error: (error) => {
-    //     this.errors = error;
-    //   },
-    // });
-  }
-
-  getSelectedType() {
-    //   this.selectedType = this.select.getSelectedChip().title;
-    //   if (this.selectedType === 'Other' || this.selectedType === 'other') {
-    //     this.isOther = true;
-    //   } else {
-    //     this.isOther = false;
-    //   }
+  getRandom() {
+    return Math.floor(Math.random() * (100000000 - 0 + 1)) + 0;
   }
 
   exit() {

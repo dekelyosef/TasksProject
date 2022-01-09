@@ -2,23 +2,20 @@
     <div class="exit" (click)="exit()"></div>
     <div class="header-container">Add New Task</div>
     <div class="body-row">Title:
-        <pt-text-input class="input" #input [message]="false"></pt-text-input>
-        <!-- <pt-select (messageEvent)="getSelectedType()" class="multi-select" [chips]="types"></pt-select> -->
+        <pt-text-input class="input" #title [message]="false"></pt-text-input>
     </div>
-    <!-- <div *ngIf="isOther" class="body-row">
-        <div>Other:</div>
-        <pt-text-input class="input" #input></pt-text-input>
-    </div> -->
     <div class="body-row">Description:
-        <pt-text-input class="input" #content [message]="true"></pt-text-input>
+        <pt-text-input class="input" #description [message]="true"></pt-text-input>
     </div>
-    <div class="body-row">Due Date:
-        <pt-date></pt-date>
+    <div class="due-date">
+        <div class="body-row">Due Date:
+            <pt-date></pt-date>    
+        </div>
+        <div class="body-row">Hour:
+            <pt-hour></pt-hour>
+        </div>
     </div>
     <div class="add-task-button">
-        <pt-button class="button" (click)="addInquiry()" title="Add"></pt-button>
+        <pt-button class="button" (click)="addTask()" title="Add"></pt-button>
     </div>
-    <!-- <div *ngIf="errors">
-        <pt-error [error]=errors></pt-error>
-    </div>     -->
 </div>

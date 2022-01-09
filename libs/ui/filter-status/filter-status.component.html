@@ -1,6 +1,3 @@
 <pt-form-group (messageEvent)="clearSelectedStatus()" left="Status:" right="Clear" svg="clear" path="clear">
     <pt-select (messageEvent)="getSelectedStatus()" class="multi-select" [chips]="statuses"></pt-select>
-    <!-- <div *ngIf="errors">
-        <pt-error [error]=errors></pt-error>
-    </div> -->
 </pt-form-group>

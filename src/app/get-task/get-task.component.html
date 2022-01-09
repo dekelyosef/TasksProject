@@ -1,0 +1,22 @@
+<div class="task-details-body">
+    <div class="exit" (click)="exit()"></div>
+    <div class="body-row space-row">
+        <div class="left">Task ID: </div>
+        <div>{{task.id}}</div>
+    </div>
+    <div class="body-row space-row">
+        <div class="left">Title: </div>
+        <div>{{task.title}}</div>
+    </div>
+    <div class="body-row space-row">
+        <div class="left">Due Date: </div>
+        <div>{{getDate(task.date)}}</div>
+    </div>
+    <div class="body-row space-row">
+        <div class="left">Description: </div>
+        <div>{{task.description}}</div>
+    </div>
+    <div class="task-status">
+        <pt-status [status]="task.status"></pt-status>
+    </div>
+</div>

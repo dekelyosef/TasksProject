@@ -18,8 +18,11 @@ export class TextInputComponent implements OnInit {
   @Input()
   message = false;
 
-  public value = '';
-  public content = '';
+  @Input()
+  value = '';
+
+  @Input()
+  content = '';
 
   constructor() {}
 

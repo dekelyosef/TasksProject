@@ -1,4 +1,4 @@
-.add-task-body {
+.task-details-body {
   margin: 7px;
   padding: 10px 24px;
   border-radius: 5px;
@@ -6,13 +6,21 @@
   background-color: rgb(var(--base-color-white));
 }
 
-.header-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: 20px;
+.space-row {
+  display: grid;
+  grid-template-columns: 13% 87%;
+}
+
+.body-row .left {
+  color: rgba(var(--base-color-gray-3));
+}
+
+.body-row > div {
+  font-weight: lighter;
+}
+
+.body-row .right {
+  font-weight: bold;
 }
 
 .exit {
@@ -27,23 +35,9 @@
   padding: 11px 3px;
 }
 
-.body-row {
-  color: rgba(var(--base-color-gray-3));
-  font-weight: lighter;
-  margin: 0px 7px;
-}
-
-.add-task-button {
-  width: 100%;
+.task-status {
   display: flex;
-  margin-bottom: 3px;
+  margin: 7px 0px 7px 7px;
   flex-direction: column;
   align-items: flex-end;
-}
-
-.due-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
 }

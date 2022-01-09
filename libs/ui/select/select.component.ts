@@ -16,6 +16,7 @@ export class SelectComponent implements OnInit {
   @Input()
   chips: Array<Chip<T>> = [];
 
+  @Input()
   selectedChip?: Chip<T>;
 
   @Input()
@@ -40,7 +41,7 @@ export class SelectComponent implements OnInit {
   }
 
   getSelectedChip() {
-    return this.selectedChip;
+    return this.selectedChip?.title;
   }
 
   clearSelectedChip() {
